@@ -9,7 +9,7 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_PASSWORD: labpassword
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgdata:/var/bin/postgresql/data
 volumes:
