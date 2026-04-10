@@ -1,6 +1,7 @@
 services:
   web:
-    image: nginx
+    build: .
+    image: lab-compose-web:latest
     ports:
       - "8080:80"
     depends_on:
