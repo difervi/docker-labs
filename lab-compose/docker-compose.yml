@@ -1,6 +1,8 @@
 services:
   web:
-    build: .
+    build:
+      context: ../lab-multistage
+      dockerfile: Dockerfile
     image: lab-compose-web:latest
     ports:
       - "8080:80"
@@ -12,7 +14,7 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - pgdata:/var/bin/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
